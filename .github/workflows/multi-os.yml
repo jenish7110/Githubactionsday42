@@ -28,7 +28,7 @@ jobs:
         run: |
           echo "OS : macos"
           hostname
-          whomai
+          whoami
 
 
 
