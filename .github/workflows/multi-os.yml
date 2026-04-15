@@ -1,0 +1,34 @@
+name: Multi-os system 
+
+on: push
+
+jobs:
+  ubuntu-jobs:
+    runs-on: ubuntu-runner
+    steps:
+      - name: Print details
+        run: |
+          echo "OS: ubuntu"
+          hostname
+          whoami
+
+  windows-jobs:
+    runs-on: windows-latest
+    steps:
+      - name: Print Details
+        run: |
+          echo OS : Windows 
+          hostname
+          whoami
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - name: Print details
+        run: |
+          echo "OS : macos"
+          hostname
+          whomai
+
+
+
