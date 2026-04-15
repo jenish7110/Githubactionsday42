@@ -30,5 +30,15 @@ jobs:
           hostname
           whoami
 
+  check-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check version
+        run: |
+          docker --version
+          python --version
+          node --version
+          git --version
+
 
 
