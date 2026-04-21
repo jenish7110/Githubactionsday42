@@ -1,0 +1,23 @@
+name: jobs output demo 
+
+on: [push]
+
+jobs:
+  genrate-date:
+    runs-on: ubuntu-machine
+    outputs:
+      today: ${{ steps.set_date.outputs.today }}
+
+    steps:
+      - name: Set Date Output
+        id: set_date
+        run: echo "today=$(date)" >> $GITHUB_OUTPUT
+  use-date:
+    runs-on: ubuntu-latest
+    needs: genrate-date
+
+    steps:
+      - name : Print date
+        run: echo "Today's date is ${{needs.genrate-date.outputs.today}}"
+    
+
