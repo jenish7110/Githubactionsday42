@@ -1,6 +1,6 @@
 print("Running test...")
 
-x = 5
+x = 10
 y = 5
 
 assert x == y
