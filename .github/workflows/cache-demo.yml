@@ -1,0 +1,25 @@
+name: Cache Demo
+
+on: [push]
+
+jobs:
+  cache-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt')}} 
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
